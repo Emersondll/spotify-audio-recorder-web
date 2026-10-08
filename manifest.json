@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Audio Auto Recorder MP3",
+  "version": "4.0.0",
+  "description": "Grava continuamente o áudio da guia e cria um MP3 a cada mudança do título do player.",
+  "minimum_chrome_version": "116",
+  "permissions": ["tabCapture", "activeTab", "offscreen", "downloads", "storage", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": {"service_worker": "background/service-worker.js"},
+  "action": {"default_title": "Audio Auto Recorder MP3", "default_popup": "popup/popup.html"},
+  "content_scripts": [{"matches": ["<all_urls>"], "js": ["content/observer.js"], "run_at": "document_idle"}]
+}
